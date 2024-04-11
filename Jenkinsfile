@@ -21,7 +21,7 @@ pipeline {
 		}
 		 stage ('docker build') {
                         steps {
-                                sh 'docker build -t dilip19681968/java:demo2 .'
+                                sh 'docker build -t dilip19681968/java:demo1 .'
                         }
 
                 }
@@ -30,7 +30,7 @@ pipeline {
                         steps {
                           withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
                             sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
-                            sh "docker push dilip19681968/java:demo2"
+                            sh "docker push dilip19681968/java:demo1"
                           }
 			}
 		
